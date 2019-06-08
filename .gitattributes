@@ -1,4 +1,4 @@
-*.java linguist-detectable=false
+*.java linguist-detectable=true
 *.jsf linguist-detectable=true
 *.xhtml linguist-detectable=false
 *.html linguist-detectable=false
