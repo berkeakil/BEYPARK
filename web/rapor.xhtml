@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      style="background-image: url(./img/reportold.png);background-size:cover">
+    <h:head>
+       
+    <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+    <title>BEYPARK Otopark</title>
+    <meta name="description" content=""></meta>
+    <meta property="og:description" content=""></meta>
+    <meta property="og:title" content="BEYPARK Otopark"></meta>
+    <meta property="og:type" content="website"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+    <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+    <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+    </h:head>
+    <h:body>
+        
+        <div>
+         
+        <h:graphicImage  value="img/beyparklogo.png" style="float:left;height:100px"></h:graphicImage> 
+        <h:form>
+            <h:commandLink action="#{GirisYap.logout}">  
+                
+                    <h:graphicImage  value = "img/cikis.png" style="width:70px;float:right;margin-top:10px;" /> 
+                <!--</h:link>-->
+            </h:commandLink>
+        </h:form> 
+      </div>
+        <br></br><br></br><br></br>
+        <div align="center">
+            <h:panelGrid columns="1">
+                        <br></br><br></br><br></br><br></br><br></br>
+
+                <h1 style="color:red"><p></p>RAPOR</h1> 
+
+                <h:outputLabel value = "Tarih:#{beanRapor.date()}" style="font-size:24px;"/>
+               
+                <h:outputLabel value = "Otoparktaki Araç Sayısı: #{beanRapor.inOtopark()}" style="font-size:24px;"/>
+                
+                <h:outputLabel value = "Günlük Rapor:" style="font-size:24px;"/>
+                
+                <h:form>
+                    <h:dataTable value="#{beanRapor.gunlukRapor()}" var="varRapor" cellpadding="10">
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="PLAKA" /></f:facet>
+                            <h:outputText value="#{varRapor.plaka}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="GİRİŞ ZAMANI" /></f:facet>
+                            <h:outputText value="#{varRapor.giris_zamani}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="ÇIKIŞ ZAMANI" /></f:facet>
+                            <h:outputText value="#{varRapor.cikis_zamani}" />
+                        </h:column>
+                    </h:dataTable>
+                    
+                </h:form>
+                
+                <h:outputLabel value = "İstanbul Plakalı Olmayan Araçların Sayısı: #{beanRapor.notLike34s()}" style="font-size:24px;"/>
+              
+                <h:outputLabel value = "Otopark Doluluk Oranı: %#{beanRapor.dolulukOrani()}" style="font-size:24px;"/>
+              
+                <h:outputLabel value = "Dünkü Araç Sayısı: #{beanRapor.yesterdayInOtopark()}" style="font-size:24px;"/>
+            
+                <h:outputLabel value = "Cennet'teki müşterilerimizin Ortalama Yası: #{beanRapor.ortalamaYas('CENNET')}" style="font-size:24px;"/>
+                <h:outputLabel value = "Bağcılar'teki müşterilerimizin Ortalama Yası: #{beanRapor.ortalamaYas('BAGCILAR')}" style="font-size:24px;"/>
+                <h:outputLabel value = "Bayrampaşa'teki müşterilerimizin Ortalama Yası: #{beanRapor.ortalamaYas('BAYRAMPASA')}" style="font-size:24px;"/>
+                <h:outputLabel value = "Arnavutköy'teki müşterilerimizin Ortalama Yası: #{beanRapor.ortalamaYas('ARNAVUTKOY')}" style="font-size:24px;"/>
+                <h:outputLabel value = "Cennet'teki bu ve gelecek ayki dogum gunu olan musterılerımız" style="font-size:24px;"/>
+                <h:form>
+                    <h:dataTable value="#{beanRapor.buVeGelecekAyDogumGunu('CENNET')}" var="cennet" cellpadding="10">
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="NAME" /></f:facet>
+                            <h:outputText value="#{cennet.name}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="SURNAME" /></f:facet>
+                            <h:outputText value="#{cennet.surname}" />
+                        </h:column>
+                    </h:dataTable>
+                    
+                </h:form>
+                 <h:outputLabel value = "Bağcılar'teki bu ve gelecek ayki dogum gunu olan musterılerımız" style="font-size:24px;"/>
+                <h:form>
+                    <h:dataTable value="#{beanRapor.buVeGelecekAyDogumGunu('BAGCILAR')}" var="bagcılar" cellpadding="10">
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="NAME" /></f:facet>
+                            <h:outputText value="#{bagcılar.name}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="SURNAME" /></f:facet>
+                            <h:outputText value="#{bagcılar.surname}" />
+                        </h:column>
+                    </h:dataTable>
+                    
+                </h:form>
+                 <h:outputLabel value = "Bayrampasa'teki bu ve gelecek ayki dogum gunu olan musterılerımız" style="font-size:24px;"/>
+                <h:form>
+                    <h:dataTable value="#{beanRapor.buVeGelecekAyDogumGunu('BAYRAMPASA')}" var="bayrampasa" cellpadding="10">
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="NAME" /></f:facet>
+                            <h:outputText value="#{bayrampasa.name}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="SURNAME" /></f:facet>
+                            <h:outputText value="#{bayrampasa.surname}" />
+                        </h:column>
+                    </h:dataTable>
+                    
+                </h:form>
+                 <h:outputLabel value = "Arnavutkoy'teki bu ve gelecek ayki dogum gunu olan musterılerımız" style="font-size:24px;"/>
+                <h:form>
+                    <h:dataTable value="#{beanRapor.buVeGelecekAyDogumGunu('ARNAVUTKOY')}" var="arnavutkoy" cellpadding="10">
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="NAME" /></f:facet>
+                            <h:outputText value="#{arnavutkoy.name}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"><h:outputText value="SURNAME" /></f:facet>
+                            <h:outputText value="#{arnavutkoy.surname}" />
+                        </h:column>
+                    </h:dataTable>
+                    
+                </h:form>
+                
+                 
+             
+            </h:panelGrid>
+        </div>
+    </h:body>
+</html>

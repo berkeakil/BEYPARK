@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+   <h:head>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+    <title>BEYPARK Otopark</title>
+    <meta name="description" content=""></meta>
+    <meta property="og:description" content=""></meta>
+    <meta property="og:title" content="BEYPARK Otopark"></meta>
+    <meta property="og:type" content="website"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+    <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+   </h:head>
+   <h:body style="background-image: url(./img/arkaplanters2.jpg);background-size:cover">
+      <div>
+         
+        <h:graphicImage  value="img/beyparklogo.png" style="float:left;height:100px"></h:graphicImage> 
+        <h:form>
+            <h:commandLink action="#{GirisYap.logout}">  
+                
+                    <h:graphicImage  value = "img/cikis.png" style="width:70px;float:right;margin-top:10px;" /> 
+                <!--</h:link>-->
+            </h:commandLink>
+        </h:form> 
+      </div>
+      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><hr></hr>
+      <div align="center">
+         <h:outputLabel value="CANLI YAYIN" style="font-weight:bolder;font-size:100px;color:blue;"/><br></br>
+         <video width="600" loop="true" autoplay="true">
+            <source src="img/Live_Feed.mp4" type="video/mp4"></source>
+            Your browser does not support HTML5 video.
+         </video>
+         <br></br><br></br><br></br>
+
+         <h:form>
+         <h:panelGrid >
+            <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                <h:commandButton style="font-size:50px;" id = "giriscikis" value = "Arac Giriş&thinsp;/&thinsp;Çıkışı" action="#{beanPersonel.goToGirisCikis}" />
+            </h:panelGroup>
+            <br></br>
+            <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                <h:commandButton style="font-size:50px;" id = "raporal" value = "Rapor Al" action="#{beanPersonel.goToRapor}" />
+            </h:panelGroup>
+         </h:panelGrid>
+         </h:form>
+      </div>
+
+   </h:body>
+</html>

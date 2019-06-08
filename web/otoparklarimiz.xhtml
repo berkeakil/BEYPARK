@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Beypark - Otoparklarımız</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--
+        Set your own API-key. Testing key is not valid for other web-sites and services.
+        Get your API-key on the Developer Dashboard: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="scripts/maps-api.js" type="text/javascript"></script>
+    <script src="scripts/icon_customImage.js" type="text/javascript"></script>
+    <style>
+        html, body, #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+    </style>
+        <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+    <title>BEYPARK Otopark</title>
+    <meta name="description" content=""></meta>
+    <meta property="og:description" content=""></meta>
+    <meta property="og:title" content="BEYPARK Otopark"></meta>
+    <meta property="og:type" content="website"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+    <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+    <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+</head>
+<h:body style="overflow:hidden;background-image: url(./img/arkaplanters2.jpg); ">
+   <div>
+    <div id="myNav" class="overlay">
+
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+       <div class="overlay-content">
+            <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+            </h:form> 
+
+       </div>
+        
+    </div>
+    
+        <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+   
+        <h:link  outcome="girisYap">
+            <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em"/> 
+        </h:link>
+  
+        <h:link  outcome="index">
+           <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+  </div>
+    <script>
+        
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+    </script>
+    <br></br>
+<div>
+   <hr></hr>
+   <h1 align="center" style="color:red"> OTOPARKLARIMIZ</h1>
+   <h2 style='color:blue'>
+   <h:panelGrid columns="5">
+            <h:outputLabel value=" &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Cennet Otoparkı" />
+         <!--   <h:commandButton value="Cennet Otoparkı" onclick='cennet()'/>-->
+             <h:outputLabel value="&emsp;&emsp;&emsp;&emsp;&emsp;Bağcılar Otoparkı"/>
+             <h:outputLabel value="&emsp;&emsp;&emsp;&emsp;&emsp;Bayrampaşa Otoparkı"/>
+             <h:outputLabel value="&emsp;&emsp;&emsp;&emsp;Arnavutköy Otoparkı"/>
+ </h:panelGrid>
+   </h2>
+</div>
+   <div id="map"></div>
+
+</h:body>
+
+</html>

@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+         <meta charset="utf-8"/>
+         <meta charset="utf-16"/>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+         <meta name="description" content=""/>
+         <meta name="author" content=""/>
+         <meta property="og:title" content="BEYPARK Otopark"></meta>
+         <meta property="og:type" content="website"></meta>
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+         <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+         <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+          <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+         <title>BEYPARK - Hesabım</title>
+         <meta property="og:description" content=""></meta>
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+         <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+         <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+         <script type="text/javascript" src="scripts/hesabim/jquery-1.9.1.js"></script>
+         <link rel="stylesheet" type="text/css" href="/css/normalize.css"></link>
+         <link rel="stylesheet" type="text/css" href="/css/result-light.css"></link>
+         <script type="text/javascript" src="scripts/hesabim/editctrl.js"></script>
+
+         <script type="text/javascript" src="scripts/hesabim/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="css/hesabim/bootstrap.min.css"></link>
+         <link rel="stylesheet" type="text/css" href="css/hesabim/bootstrap-theme.min.css"></link>
+
+  <script type="text/javascript">
+
+  $(document).ready(function () {
+      $('.editBtn').click(function () {
+          if ($('.editField').is('[readonly]')) { //checks if it is already on readonly mode
+              $('.editField').prop('readonly', false);//turns the readonly off
+              $('.editBtn').html('Düzenleme Açık'); //Changes the text of the button
+              $('.editBtn').css("background", "green"); //changes the background of the button
+              $('.editBtn').css("border", "green"); //changes the border of the button
+          } else { //else we do other things
+              $('.editField').prop('readonly', true);
+              $('.editBtn').html('Düzenleme Kapalı');
+              $('.editBtn').css("background", "red");
+          }
+      });
+
+  });
+
+
+</script>
+     
+    </head>
+
+<h:body style="background-image: url(./img/arkaplanters2.jpg);background-size:cover;overflow:hidden">
+    <div>
+    <div id="myNav" class="overlay">
+
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+       <div class="overlay-content">
+            <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+            </h:form> 
+
+       </div> 
+        
+    </div>
+    
+        <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+   
+        <h:link  outcome="girisYap">
+            <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em"/> 
+        </h:link>
+  
+        <h:link  outcome="index">
+           <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+  </div>
+    <script>
+        
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+    </script>
+    <hr></hr>
+    
+    <div align="center">
+        <h:panelGroup>
+
+            <h1 style="color:red"><p></p>HESABIM</h1> 
+        </h:panelGroup>
+            
+
+        
+    <div class="row text-center">
+    <a class="btn btn-danger editBtn" style="background: green; border: green;">Düzenleme Açık</a>
+</div>
+    <div aling='center'>
+        <h:form>
+      <h:panelGrid>
+        
+          <div class="form-group">
+              <div class="input-group">
+                 
+                 <h:outputText value = "E-Posta :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" readonly="true" value="#{GirisYap.email}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "İsim :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" value="#{GirisYap.name}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "Soyisim :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" value="#{GirisYap.surname}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "Şifre :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" value="#{GirisYap.decryptedPassword}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "Telefon :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" value="#{GirisYap.telephone}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "Plaka :" style="font-size:18px;"/>
+                  <h:inputText required="true" class="form-control editField" a:type="text" value="#{GirisYap.plaka}" size="55"/>
+              </div>
+          </div>
+          <br></br>
+          
+          <h:commandButton id="submit" value="Kaydet" class="btn btn-default" action="#{GirisYap.guncelle(0)}" style="float:right"/>
+          <br></br>
+          <h:commandButton value="Hesabımı Sil" class="btn btn-default" action="#{GirisYap.sil()}" style="float:right"/>
+            <br></br><br></br><br></br>
+                  <h:form> 
+                      <div align="center">
+                          <h:commandButton class="btn btn-default" style="width:100px" value="LOGOUT" action="#{GirisYap.logout()}"> </h:commandButton>
+                      </div>
+        </h:form>
+          
+          
+          
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+      </h:panelGrid>
+         </h:form>
+     </div>
+
+  <br></br><br></br><br></br><br></br><br></br>
+    </div>
+
+
+</h:body>
+</html>
+
+
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+   <h:head>
+       
+    <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+    <title>BEYPARK Otopark</title>
+    <meta name="description" content=""></meta>
+    <meta property="og:description" content=""></meta>
+    <meta property="og:title" content="BEYPARK Otopark"></meta>
+    <meta property="og:type" content="website"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+    <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+    <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+    </h:head>
+   <h:body style="background-image: url(./img/arkaplanters2.jpg);background-size:cover;overflow:hidden">
+    <div>
+    <div id="myNav" class="overlay">
+
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+       <div class="overlay-content">
+            <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+            </h:form> 
+       </div>
+    </div>
+    
+        <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+   
+        <h:link  outcome="girisYap">
+            <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em"/> 
+        </h:link>
+  
+        <h:link  outcome="index">
+           <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+  </div>
+    <script>
+        
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+    </script>
+    <hr></hr>
+    <div align="center">
+        
+    <div aling='center'>
+       <h:form>
+      <h:panelGrid>
+              <br></br><br></br>
+
+          <div class="form-group">
+              <div class="input-group">
+                 <h:graphicImage value = "img/beycard.jpg" style="width:250px;margin-left:4em"/>
+                 <br></br><br></br><br></br>
+
+                 <h:outputText value = "Kart Numarası Giriniz :" style="font-size:18px;"/>
+                  <h:inputText required="true" a:type="text" value="#{beanOdeme.cardno}"  size="55"/>
+                  <br></br>
+                  <h:outputText value = "Sifre :" style="font-size:18px;"/>
+                  <h:inputText required="true" a:type="text" value="#{beanOdeme.password}" size="55"/>
+                  <br></br>
+                  <h:outputText value = "Son Kullanma Tarihi :" style="font-size:18px;"/>
+                  <h:inputText required="true" a:type="text" value="#{beanOdeme.date}"  size="55"/>
+                  <br></br>
+                  <h:outputText value = "CCV :" style="font-size:18px;"/>
+                  <h:inputText required="true" a:type="text" value="#{beanOdeme.ccv}" size="55"/>
+                  <br></br>
+                <h:selectOneRadio  id="otopark" value="#{beanOdeme.tarife}" style="font-size:18px;">
+                    <f:selectItem itemValue="1" itemLabel="&nbsp;Standard &nbsp;" />
+                    <f:selectItem itemValue="2" itemLabel="&nbsp;Mini &nbsp;" />
+                    <f:selectItem itemValue="3" itemLabel="&nbsp;Midi &nbsp;" />
+                    <f:selectItem itemValue="4" itemLabel="&nbsp;Mega &nbsp;" />
+                </h:selectOneRadio>
+                  
+              </div>
+          </div>
+         <br></br>
+          <h:commandButton id="submit" value="Ode" class="btn btn-default" action="#{beanOdeme.ode(tarife)}"/>
+                       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>            
+      </h:panelGrid>
+             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+ 
+       </h:form>
+
+    </div>
+
+
+    </div>
+
+
+</h:body>
+</html>

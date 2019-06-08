@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <head>
+      <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+      <title>BEYPARK Otopark - Paketlerimiz</title> 
+      <meta name="description" content=""></meta>
+      <meta property="og:description" content=""></meta>
+      <meta property="og:title" content="BEYPARK OTOPARK"></meta>
+      <meta property="og:type" content="website"></meta>
+      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+      <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link rel="stylesheet" type="text/css" href="css/slideshow.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+      <link rel='stylesheet' id='fw-ext-builder-frontend-grid-css'  href='css/paketlerimiz/frontend-grid.css' type='text/css' media='all' />
+      <link rel='stylesheet' id='fw-shortcode-section-css'  href='css/paketlerimiz/styles.css' type='text/css' media='all' />
+      <link rel='stylesheet' id='meta4delicious-css'  href='css/paketlerimiz/style.css' type='text/css' media='all' />
+      <link rel='stylesheet' id='rpt-css'  href='css/paketlerimiz/rpt_style.min.css' type='text/css' media='all' />
+  </head>
+   
+  <h:body style="background-image: url(./img/p1.jpg);background-repeat:no-repeat;background-size:cover;overflow:hidden">
+   <div>
+      <div id="myNav" class="overlay">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+         <div class="overlay-content">
+              <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+              </h:form> 
+         </div>
+      </div>
+      <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+      
+      <h:link  outcome="girisYap">
+          <h:graphicImage value = "img/sign.png" style=" ; width:70px;margin-left:4em;filter:brightness(150%);" /> 
+      </h:link>
+      <h:link  outcome="index">
+          <img src="img/beyparklogo.png" style="float:right;height:100px"></img>        
+      </h:link> 
+      
+   </div>
+   <script>
+
+       function openNav() {
+         document.getElementById("myNav").style.width = "100%";
+       }
+
+       function closeNav() {
+         document.getElementById("myNav").style.width = "0%";
+       }
+   </script>
+     
+   <div class="section-wrapper">
+
+       <div class="custom-bg"></div>		
+       <div class="fw-container">
+           <header class="fw-section-header">
+              <h2 class="fw-section-heading" style="color:#0033ff"><strong>Otopark Paketlerimiz</strong></h2>
+               <div class="fw-section-heading-sep"></div>
+               <img src="img/indirim.png" style="width:15%"></img> 
+           </header>
+       <tr>
+           <div class="fw-col-xs-12">
+               <p style="text-align: center;"></p>
+               <div id="rpt_pricr" class="rpt_plans rpt_4_plans rpt_style_basic">
+                   
+                   <div class="">
+                       <div class="rpt_plan   rpt_plan_0  ">
+                           <div style="text-align:left;" class="rpt_title rpt_title_0">
+                               <strong>#{beanPaketlerimiz.name(1)}</strong>
+                           </div>
+                           <div class="rpt_head rpt_head_0">
+                               <div class="rpt_price rpt_price_0"><span class="rpt_currency">TL</span>10</div>
+                           </div>
+                               <div class="rpt_features rpt_features_0">
+                                  <tr style="color:black;">Tüm Otoparklarda</tr><hr></hr>
+                                  <tr style="color:black;">Ayda <strong>Sınırsız</strong> Kullanım</tr><hr></hr>
+                                  <tr>Saati: <strong>#{beanPaketlerimiz.price(1)} TL</strong></tr>
+                               </div>
+                               <a target="_self" href="odeme.xhtml" style="background:#f37024" class="rpt_foot rpt_foot_0">Satın Al</a>
+                       </div>
+                           <div class="rpt_plan   rpt_plan_1  ">
+                              <div style="text-align:left;" class="rpt_title rpt_title_1">#{beanPaketlerimiz.name(2)} </div>
+                               <div class="rpt_head rpt_head_1">
+                                   <div class="rpt_price rpt_price_1"><span class="rpt_currency">TL</span>#{beanPaketlerimiz.totalprice(2)}</div>
+                               </div>
+                               <div class="rpt_features rpt_features_1">
+                                    <tr style="color:black;">Tüm Otoparklarda</tr><hr></hr>
+                                    <tr style="color:black;">Ayda <strong>#{beanPaketlerimiz.hourtime(2)} saat</strong> Kullanım</tr><hr></hr>
+                                    <tr>Saati: <strong>#{beanPaketlerimiz.price(2)} TL</strong></tr>
+                               </div><a target="_self" href="odeme.xhtml" style="background:#06abe6" class="rpt_foot rpt_foot_1">Satın Al</a></div><div class="rpt_plan   rpt_plan_2  ">
+                                  <div style="text-align:left;" class="rpt_title rpt_title_2">#{beanPaketlerimiz.name(3)}</div>
+                                  <div class="rpt_head rpt_head_2">
+                                     <div class="rpt_price rpt_price_2">
+                                        <span class="rpt_currency">TL</span>#{beanPaketlerimiz.totalprice(3)}</div>
+                                  </div>
+                                  <div class="rpt_features rpt_features_2">
+                                       <tr style="color:black;">Tüm Otoparklarda</tr><hr></hr>
+                                       <tr style="color:black;">Ayda <strong>#{beanPaketlerimiz.hourtime(3)} saat</strong> Kullanım</tr><hr></hr>
+                                       <tr>Saati: <strong>#{beanPaketlerimiz.price(3)} TL</strong></tr>
+                                  </div>
+                                  <a target="_self" href="odeme.xhtml" style="background:#06abe6" class="rpt_foot rpt_foot_2">Satın Al</a>
+                           </div>
+                           <div class="rpt_plan   rpt_plan_3  ">
+                               <div style="text-align:left;" class="rpt_title rpt_title_3">#{beanPaketlerimiz.name(4)}</div>
+                               <div class="rpt_head rpt_head_3">
+                                   <div class="rpt_price rpt_price_3"><span class="rpt_currency">TL</span>#{beanPaketlerimiz.totalprice(4)}</div>
+                               </div>
+                               <div class="rpt_features rpt_features_3">
+                                       <tr style="color:black;">Tüm Otoparklarda</tr><hr></hr>
+                                       <tr style="color:black;">Ayda <strong>#{beanPaketlerimiz.hourtime(4)} saat</strong> Kullanım</tr><hr></hr>
+                                       <tr>Saati: <strong>#{beanPaketlerimiz.price(4)} TL</strong></tr> 
+                                  
+                               </div>
+                               <a target="_self" href="odeme.xhtml" style="background:#06abe6" class="rpt_foot rpt_foot_3">Satın Al</a>
+                           </div> 
+                         </div>
+                      </div>
+                   </div>
+                </tr>
+       </div>
+       <p style="font-size:15px;color:black;"><br></br><br></br><br></br><br></br>&emsp;*İndirimimiz sadece Mini,Midi ve Mega paketlerimizde geçerlidir.</p>
+
+   </div>
+  </h:body>
+</html>

@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" style="background-color:#66ccff">
+    <head>
+        <meta charset="utf-8"/>
+        <meta charset="utf-16"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        
+        <link href="css/girisyap/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/girisyap/style.css" rel="stylesheet"/>
+        <script src="scripts/girisyap/jquery.min.js"></script>
+        <script src="scripts/girisyap/bootstrap.min.js"></script>
+        <script src="scripts/girisyap/sidebar-nav.min.js"></script>
+        <script src="scripts/girisyap/jquery.slimscroll.js"></script>
+        <script src="scripts/girisyap/custom.js"></script>
+             
+        <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+        <title>BEYPARK Otopark - Bize Ulaşın</title>
+        <meta name="description" content=""></meta>
+        <meta property="og:description" content=""></meta>
+        <meta property="og:title" content="BEYPARK Otopark"></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+        <link rel="stylesheet" type="text/css" href="css/slideshow.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+        
+        
+    </head>
+
+   <h:body style="background-image: url(./img/arkaplanters2.jpg);background-repeat:no-repeat;background-size:cover;overflow: hidden">
+      
+<div>
+    <div id="myNav" class="overlay">
+
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+       <div class="overlay-content">
+            <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+            </h:form> 
+
+       </div>
+        
+    </div>
+    
+        <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+   
+        <h:link  outcome="girisYap">
+            <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em"/> 
+        </h:link>
+  
+        <h:link  outcome="index">
+           <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+  </div>
+    <script>
+        
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+    </script>
+
+       <hr></hr>
+      
+
+
+
+<div align="center">
+<h:form>
+   <p><t><br></br><br></br></t></p>
+        
+      <h:panelGrid id = "panel" columns = "1">
+       <h:outputLabel value = "E-Posta" style="font-size:18px;"/>
+       <h:inputText  size="75" value="#{beanbeanBizeUlasin.email}"/>
+       <br></br>
+       <h:outputLabel value = "Adınız" style="font-size:18px;"/>
+       <h:inputText size="75" value="#{beanbeanBizeUlasin.name}"/>
+       <br></br>
+       <h:outputLabel value = "Soyadınız" style="font-size:18px;"/>
+       <h:inputText size="75" value="#{beanbeanBizeUlasin.surname}" />
+       <br></br>
+       <h:outputLabel value = "Telefon" style="font-size:18px;"/>
+       <h:inputText  size="75"
+                     value="#{beanbeanBizeUlasin.telephone}"/>
+       <br></br>
+       <h:outputLabel value = "Mesajınız" style="font-size:18px;"/>
+       <h:inputTextarea  cols="75" rows="7" value="#{beanBizeUlasin.msg}"/>
+
+       <h:panelGrid id = "insidePanel" columns = "3">
+       <br></br>
+       </h:panelGrid>
+       <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+           <h:commandButton id = "submit" value = "Gönder" style="width:150px;height:75px" action="#{beanBizeUlasin.mailAt()}" />
+       </h:panelGroup>
+       <br></br><br></br><br></br><br></br>
+      </h:panelGrid>
+</h:form>
+    <br></br>
+</div>
+       <footer style="background-color:transparent">
+        <div>
+        <div style="text-align:center">
+            <h:graphicImage value = "img/konum1.png" style="width:30px;margin-left:4em"/> 
+            <h:outputLabel value = " &thinsp;ADRES:Üniversite Mahallesi, Bağlariçi Cd. No:7, 34320 Avcılar/İstanbul" style="font-size:18px;color:black"/><br></br>
+            <h:graphicImage value = "img/arama1.svg" style="width:30px;margin-left:4em"/> 
+            <h:outputLabel value = "&thinsp; İLETİŞİM: 0(461)061 55 42 - 0(561) 061 55 42" style="font-size:18px;color:black"/><br></br>
+            <h:graphicImage value = "img/mail1.png" style="width:30px;margin-left:4em;"/> 
+            <h:outputLabel value = "&thinsp;&thinsp;&thinsp;E-Posta:iletisim.beypark@gmail.com" style="font-size:18px;color:black"/>
+            <br></br><br></br>
+        </div>
+   <br></br><br></br><br></br><br></br><br></br><br></br>
+        </div>
+  </footer>
+</h:body>
+</html>

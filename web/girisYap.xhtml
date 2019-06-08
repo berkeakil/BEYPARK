@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <meta charset="utf-8"/>
+        <meta charset="utf-16"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <meta property="og:title" content="BEYPARK Otopark"></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+        
+        <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+        <title>BEYPARK - Giriş</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+        <link href="css/girisyap/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/girisyap/style.css" rel="stylesheet"/>
+        <script src="scripts/girisyap/jquery.min.js"></script>
+        <script src="scripts/girisyap/bootstrap.min.js"></script>
+        <script src="scripts/girisyap/sidebar-nav.min.js"></script>
+        <script src="scripts/girisyap/jquery.slimscroll.js"></script>
+        <script src="scripts/girisyap/custom.js"></script>
+
+        
+    </head>
+
+<body class="public-body" style="background-image: url(./img/p1.jpg);background-repeat:no-repeat;background-size:cover">
+   <div>
+       <div id="myNav" class="overlay">
+
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <div class="overlay-content">
+               <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+               </h:form> 
+
+          </div>
+
+       </div>
+
+           <span style="font-size:62px;cursor:pointer;" onclick="openNav()"><sub style="color:white">☰</sub></span>
+
+           <h:link  outcome="girisYap">
+               <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em;filter:brightness(150%);"/> 
+           </h:link>
+
+           <h:link  outcome="index">
+              <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+           </h:link> 
+     </div>
+       <script>
+
+           function openNav() {
+             document.getElementById("myNav").style.width = "100%";
+           }
+
+           function closeNav() {
+             document.getElementById("myNav").style.width = "0%";
+           }
+
+       </script>
+   
+   <div id="wrapper">
+       <div id="page-wrapper" style="background: transparent; margin: 0 !important; padding: 0 !important;">
+           <div class="container-fluid">
+               <div class="row" style="margin-top: 50px;">
+                   <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
+                   <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                       <div class="panel panel-default">
+                           <div class="panel-heading">
+                              <h:link outcome="index">
+                              <p ><h1 align="center"><img src="img/beyparklogo.png" width="50%"></img></h1></p>
+                              </h:link>
+                           </div>
+                           <div class="panel-wrapper collapse in">
+                               <ul class="nav customtab nav-tabs" role="tablist" style="text-align: center; ">
+                               <li role="presentation" class="active" style="float: none; display: inline-block;width: 49%;">
+                                   <a href="#home1" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">
+                                       <span class="visible-xs">
+                                           <i class="ti-home"></i>
+                                       </span>
+                                      <span class="hidden-xs" style="font-size:25px"> Giriş Yap</span>
+                                   </a>
+                               </li>
+                               <li role="presentation" class="" style="float: none; display: inline-block; width: 50%;">
+                                   <a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
+                                       <span class="visible-xs"><i class="ti-user"></i></span>
+                                       <span class="hidden-xs" style="font-size:25px">Kayıt Ol</span></a>
+                               </li>
+                               </ul>
+
+                               <div class="panel-body">
+                                   <div class="tab-content m-t-0">
+                                       <div role="tabpanel" class="tab-pane fade active in" id="home1">
+                                                   <h:form>
+                                                     <h:panelGrid id = "panel" columns = "1">
+                                                        <h:outputLabel value = "E-Posta*" style="font-size:18px;"/>
+                                                        <h:inputText required="true" value="#{GirisYap.girisEmail}" size="75" />
+                                                        <br></br>
+                                                        <h:outputLabel value = "Şifre*" style="font-size:18px;"/>
+                                                        <h:inputSecret required="true" value="#{GirisYap.girisPassword}" size="75"/>
+                                                        <br></br><p><small><sup>*</sup>Doldurulması zorunlu alanlar</small></p>
+                                                        <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                                                            <h:commandButton id = "submit" value = "Giriş Yap" action = "#{GirisYap.login()}"/>
+                                                        </h:panelGroup>
+                                                     </h:panelGrid>
+                                                  </h:form>
+                                          <div class="clearfix"></div>
+                                       </div>
+                                       <div role="tabpanel" class="tab-pane fade " id="profile1">
+                                           <div class="col-md-12">
+                                               <h:form>
+                                                  <h:panelGrid id = "panel" columns = "1">
+                                                      <h:outputLabel value = "Ad*" style="font-size:18px;"/>
+                                                      <h:inputText required="true" value="#{GirisYap.name}" size="75"/>
+                                                     <br></br>
+                                                      <h:outputLabel value = "Soyad*" style="font-size:18px;"/>
+                                                     <h:inputText required="true" value="#{GirisYap.surname}" size="75"/>
+                                                     <br></br>
+                                                      <h:outputLabel value = "E-Posta*" style="font-size:18px;"/>
+                                                     <h:inputText required="true" a:type="email" value="#{GirisYap.email}" size="75"/>
+                                                     <br></br>
+                                                     <h:outputLabel value = "Şifre*" style="font-size:18px;"/>
+                                                     <h:inputSecret required="true" value="#{GirisYap.password}" size="75"/>
+                                                     <br></br>
+                                                     <h:outputLabel value = "Şifre Tekrarı*" style="font-size:18px;"/>
+                                                     <h:inputSecret required="true" size="75"/>
+                                                     <br></br>
+                                                     <h:outputLabel value = "Telefon*" style="font-size:18px;"/>
+                                                     <h:inputText  required="true" value="#{GirisYap.telephone}" size="75"/>
+                                                     <br></br>
+                                                     <h:outputLabel value = "Plaka*" style="font-size:18px;"/>
+                                                     <h:inputText required="true" value="#{GirisYap.plaka}" size="75"/>
+                                                     <br></br>
+                                                     <h:outputLabel value = "Doğum Tarihi*" style="font-size:18px;"/>
+                                                     <h:panelGrid  id = "insidePanel" columns = "3">
+
+                                                     <h:selectOneMenu required="true" id="gunBox" value="#{GirisYap.gun}" style="font-size:18px;">
+                                                         <f:selectItem itemValue="NULL" itemLabel="Gün" />
+                                                         <f:selectItem itemValue="1" itemLabel="1" />
+                                                         <f:selectItem itemValue="2" itemLabel="2" />
+                                                         <f:selectItem itemValue="3" itemLabel="3" />
+                                                         <f:selectItem itemValue="4" itemLabel="4" />
+                                                         <f:selectItem itemValue="5" itemLabel="5" />
+                                                         <f:selectItem itemValue="6" itemLabel="6" />
+                                                         <f:selectItem itemValue="7" itemLabel="7" />
+                                                         <f:selectItem itemValue="8" itemLabel="8" />
+                                                         <f:selectItem itemValue="9" itemLabel="9" />
+                                                         <f:selectItem itemValue="10" itemLabel="10" />
+                                                         <f:selectItem itemValue="11" itemLabel="11" />
+                                                         <f:selectItem itemValue="12" itemLabel="12" />
+                                                         <f:selectItem itemValue="13" itemLabel="13" />
+                                                         <f:selectItem itemValue="14" itemLabel="14" />
+                                                         <f:selectItem itemValue="15" itemLabel="15" />
+                                                         <f:selectItem itemValue="16" itemLabel="16" />
+                                                         <f:selectItem itemValue="17" itemLabel="17" />
+                                                         <f:selectItem itemValue="18" itemLabel="18" />
+                                                         <f:selectItem itemValue="19" itemLabel="19" />
+                                                         <f:selectItem itemValue="20" itemLabel="20" />
+                                                         <f:selectItem itemValue="21" itemLabel="21" />
+                                                         <f:selectItem itemValue="22" itemLabel="22" />
+                                                         <f:selectItem itemValue="23" itemLabel="23" />
+                                                         <f:selectItem itemValue="24" itemLabel="24" />
+                                                         <f:selectItem itemValue="25" itemLabel="25" />
+                                                         <f:selectItem itemValue="26" itemLabel="26" />
+                                                         <f:selectItem itemValue="27" itemLabel="27" />
+                                                         <f:selectItem itemValue="28" itemLabel="28" />
+                                                         <f:selectItem itemValue="29" itemLabel="29" />
+                                                         <f:selectItem itemValue="30" itemLabel="30" />
+                                                         <f:selectItem itemValue="31" itemLabel="31" />
+                                                     </h:selectOneMenu>   
+                                                     <h:selectOneMenu required="true" id="ayBox" value="#{GirisYap.ay}" style="font-size:18px;">
+                                                         <f:selectItem itemValue="NULL" itemLabel="Ay" />
+                                                         <f:selectItem itemValue="Ocak" itemLabel="Ocak" />
+                                                         <f:selectItem itemValue="Subat" itemLabel="Şubat" />
+                                                         <f:selectItem itemValue="Mart" itemLabel="Mart" />
+                                                         <f:selectItem itemValue="Nisan" itemLabel="Nisan" />
+                                                         <f:selectItem itemValue="Mayis" itemLabel="Mayıs" />
+                                                         <f:selectItem itemValue="Haziran" itemLabel="Haziran" />
+                                                         <f:selectItem itemValue="Temmuz" itemLabel="Temmuz" />
+                                                         <f:selectItem itemValue="Agustos" itemLabel="Ağustos" />
+                                                         <f:selectItem itemValue="Eylul" itemLabel="Eylül" />
+                                                         <f:selectItem itemValue="Ekim" itemLabel="Ekim" />
+                                                         <f:selectItem itemValue="Kasim" itemLabel="Kasım" />
+                                                         <f:selectItem itemValue="Aralik" itemLabel="Aralık" />
+                                                     </h:selectOneMenu>   
+                                                     <h:selectOneMenu required="true" id="yilBox" value="#{GirisYap.yil}" style="font-size:18px;">  
+                                                         <f:selectItem itemValue="NULL" itemLabel="Yıl" />
+                                                         <f:selectItem itemValue="1920" itemLabel="1920" />
+                                                         <f:selectItem itemValue="1921" itemLabel="1921" />
+                                                         <f:selectItem itemValue="1922" itemLabel="1922" />
+                                                         <f:selectItem itemValue="1923" itemLabel="1923" />
+                                                         <f:selectItem itemValue="1924" itemLabel="1924" />
+                                                         <f:selectItem itemValue="1925" itemLabel="1925" />
+                                                         <f:selectItem itemValue="1926" itemLabel="1926" />
+                                                         <f:selectItem itemValue="1927" itemLabel="1927" />
+                                                         <f:selectItem itemValue="1928" itemLabel="1928" />
+                                                         <f:selectItem itemValue="1929" itemLabel="1929" />
+                                                         <f:selectItem itemValue="1930" itemLabel="1930" />
+                                                         <f:selectItem itemValue="1931" itemLabel="1931" />
+                                                         <f:selectItem itemValue="1932" itemLabel="1932" />
+                                                         <f:selectItem itemValue="1933" itemLabel="1933" />
+                                                         <f:selectItem itemValue="1934" itemLabel="1934" />
+                                                         <f:selectItem itemValue="1935" itemLabel="1935" />
+                                                         <f:selectItem itemValue="1936" itemLabel="1936" />
+                                                         <f:selectItem itemValue="1937" itemLabel="1937" />
+                                                         <f:selectItem itemValue="1938" itemLabel="1938" />
+                                                         <f:selectItem itemValue="1939" itemLabel="1939" />
+                                                         <f:selectItem itemValue="1940" itemLabel="1940" />
+                                                         <f:selectItem itemValue="1941" itemLabel="1941" />
+                                                         <f:selectItem itemValue="1942" itemLabel="1942" />
+                                                         <f:selectItem itemValue="1943" itemLabel="1943" />
+                                                         <f:selectItem itemValue="1944" itemLabel="1944" />
+                                                         <f:selectItem itemValue="1945" itemLabel="1945" />
+                                                         <f:selectItem itemValue="1946" itemLabel="1946" />
+                                                         <f:selectItem itemValue="1947" itemLabel="1947" />
+                                                         <f:selectItem itemValue="1948" itemLabel="1948" />
+                                                         <f:selectItem itemValue="1949" itemLabel="1949" />
+                                                         <f:selectItem itemValue="1950" itemLabel="1950" />
+                                                         <f:selectItem itemValue="1951" itemLabel="1951" />
+                                                         <f:selectItem itemValue="1952" itemLabel="1952" />
+                                                         <f:selectItem itemValue="1953" itemLabel="1953" />
+                                                         <f:selectItem itemValue="1954" itemLabel="1954" />
+                                                         <f:selectItem itemValue="1955" itemLabel="1955" />
+                                                         <f:selectItem itemValue="1956" itemLabel="1956" />
+                                                         <f:selectItem itemValue="1957" itemLabel="1957" />
+                                                         <f:selectItem itemValue="1958" itemLabel="1958" />
+                                                         <f:selectItem itemValue="1959" itemLabel="1959" />
+                                                         <f:selectItem itemValue="1960" itemLabel="1960" />
+                                                         <f:selectItem itemValue="1961" itemLabel="1961" />
+                                                         <f:selectItem itemValue="1962" itemLabel="1962" />
+                                                         <f:selectItem itemValue="1963" itemLabel="1963" />
+                                                         <f:selectItem itemValue="1964" itemLabel="1964" />
+                                                         <f:selectItem itemValue="1965" itemLabel="1965" />
+                                                         <f:selectItem itemValue="1966" itemLabel="1966" />
+                                                         <f:selectItem itemValue="1967" itemLabel="1967" />
+                                                         <f:selectItem itemValue="1968" itemLabel="1968" />
+                                                         <f:selectItem itemValue="1969" itemLabel="1969" />
+                                                         <f:selectItem itemValue="1970" itemLabel="1970" />
+                                                         <f:selectItem itemValue="1971" itemLabel="1971" />
+                                                         <f:selectItem itemValue="1972" itemLabel="1972" />
+                                                         <f:selectItem itemValue="1973" itemLabel="1973" />
+                                                         <f:selectItem itemValue="1974" itemLabel="1974" />
+                                                         <f:selectItem itemValue="1975" itemLabel="1975" />
+                                                         <f:selectItem itemValue="1976" itemLabel="1976" />
+                                                         <f:selectItem itemValue="1977" itemLabel="1977" />
+                                                         <f:selectItem itemValue="1978" itemLabel="1978" />
+                                                         <f:selectItem itemValue="1979" itemLabel="1979" />
+                                                         <f:selectItem itemValue="1980" itemLabel="1980" />
+                                                         <f:selectItem itemValue="1981" itemLabel="1981" />
+                                                         <f:selectItem itemValue="1982" itemLabel="1982" />
+                                                         <f:selectItem itemValue="1983" itemLabel="1983" />
+                                                         <f:selectItem itemValue="1984" itemLabel="1984" />
+                                                         <f:selectItem itemValue="1985" itemLabel="1985" />
+                                                         <f:selectItem itemValue="1986" itemLabel="1986" />
+                                                         <f:selectItem itemValue="1987" itemLabel="1987" />
+                                                         <f:selectItem itemValue="1988" itemLabel="1988" />
+                                                         <f:selectItem itemValue="1989" itemLabel="1989" />
+                                                         <f:selectItem itemValue="1990" itemLabel="1990" />
+                                                         <f:selectItem itemValue="1991" itemLabel="1991" />
+                                                         <f:selectItem itemValue="1992" itemLabel="1992" />
+                                                         <f:selectItem itemValue="1993" itemLabel="1993" />
+                                                         <f:selectItem itemValue="1994" itemLabel="1994" />
+                                                         <f:selectItem itemValue="1995" itemLabel="1995" />
+                                                         <f:selectItem itemValue="1996" itemLabel="1996" />
+                                                         <f:selectItem itemValue="1997" itemLabel="1997" />
+                                                         <f:selectItem itemValue="1998" itemLabel="1998" />
+                                                         <f:selectItem itemValue="1999" itemLabel="1999" />
+                                                         <f:selectItem itemValue="2000" itemLabel="2000" />
+                                                         <f:selectItem itemValue="2001" itemLabel="2001" />                                
+                                                     </h:selectOneMenu>
+                                                     <br></br>
+                                                     </h:panelGrid>
+                                                     <h:outputLabel value = "Rumuz" style="font-size:18px;"/>
+                                                     <h:selectOneRadio  id="cinsiyet" value="#{GirisYap.cinsiyet}" style="font-size:18px;">
+                                                         <f:selectItem itemValue="Kadin" itemLabel="&nbsp;Kadın &nbsp;" />
+                                                         <f:selectItem itemValue="Erkek" itemLabel="&nbsp;Erkek"/>
+                                                     </h:selectOneRadio>
+                                                     
+                                                     <h:outputLabel style="color:blue;font-size:18px;" value = "Hangi otoparkımıza kayıt olmak istiyorsunuz?"/>
+                                                    <h:selectOneRadio  id="otopark" value="#{GirisYap.location}" style="font-size:18px;">
+                                                         <f:selectItem itemValue="cennet" itemLabel="&nbsp;Cennet &nbsp;" />
+                                                         <f:selectItem itemValue="bagcilar" itemLabel="&nbsp;Bagcilar &nbsp;" />
+                                                         <f:selectItem itemValue="bayrampasa" itemLabel="&nbsp;Bayrampasa &nbsp;" />
+                                                         <f:selectItem itemValue="arnavutkoy" itemLabel="&nbsp;Arnavutkoy &nbsp;" />
+                                                     </h:selectOneRadio>
+                                                     <br/>
+                                                     <form>
+                                                         <input type="checkbox" name="vehicle1"><a href="uyeliksozlesmesi.html" style="font-size:18px;">Üyelik sözleşmesini kabul ediyorum.*</a></input>
+                                                      </form>
+                                                     <h:selectManyCheckbox layout="pageDirection" value="#{user.acceptionSelected}" style="font-size:15px;">
+                                                         <f:selectItems value="#{user.acceptionList}" />                                                      
+                                                     </h:selectManyCheckbox>                                                      
+                                                     <p><small><sup>*</sup>Doldurulması zorunlu alanlar</small></p>
+                                                     <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                                                         <h:commandButton id = "submit" value = "Kayıt Ol" action="#{GirisYap.kaydet()}" />
+                                                     </h:panelGroup>
+                                                  </h:panelGrid>
+                                               </h:form>
+                                           </div>
+                                           <div class="clearfix"></div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</body>
+
+</html>

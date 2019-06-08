@@ -1,0 +1,149 @@
+
+CIKIS ZAMANI NULL VE PLAKA ? İSE
+O KAYDA CIKIS ZAMANINI INSERT ET
+KAYIT DEGERLERINI BAS
+PLAKA DEGISKENINI KULLANARAK MUSTERILER TABLOSUNDA WHERE PLAKA=XXX OLANI BAS
+IF ID == NULL ISE 
+    NAME=GUEST
+    SURNAME=GUEST
+    PAKET=STANDARD PAKET
+    PRICE=ZAMAN FARKI
+
+
+PAKET SUTUNU EKLENECEK
+PAKET KALAN TABLOSU YAPILACAK
+
+ 
+IF PLAKA IS NULL BEGIN
+    UPDATE OTOPARK SET CIKIS_ZAMANI = ? WHERE CIKIS_ZAMANI IS NULL AND PLAKA = ?;     
+    SELECT CUSTOMER_ID,NAME,SURNAME,PACKAGE_NAME FROM MUSTERILER WHERE NAME='Guest';
+END
+ELSE BEGIN
+    UPDATE OTOPARK SET CIKIS_ZAMANI = ? WHERE CIKIS_ZAMANI IS NULL AND PLAKA = ?;     
+    SELECT CUSTOMER_ID,NAME,SURNAME,PACKAGE_NAME FROM MUSTERILER WHERE PLAKA=?;
+END;
+
+SELECT *  
+FROM table1  
+FULL OUTER JOIN table2  
+ON table1.column_name = table2.column_name;  
+
+
+Sidebar fontları değişecek
+Ödeme sayfası
+DONE: Müşteriler tablosuna paket sütunu
+Silinebilirse paketlerimizde float silinecek
+Hesabıma oturum açık değilken giriş yasaklanacak
+Invalid username/password
+Bize ulaşında mail entegre edilecek
+Eğer giriş yapıldıysa giriş yap
+
+Rapor sayfasında plaka kullanılarak join ile musterilerden isim çekilecek.
+Personel tablosu ve musteri tablosundaki sifreler join ile cekilecek.
+
+INSERT INTO APP.MUSTERILER (EMAIL, PASSWORD, "NAME", SURNAME, TELEPHONE, PLAKA, GUN, AY, YIL, CINSIYET, PACKAGE_NAME) 
+	VALUES ('asd@hotmail.com', '123', 'lkhjh', 'lkdjfh', 'rpojk', 'podkfg', '23', 'Nisan', '1999', 'Kadin', 'STANDARD TARIFE');
+
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.math.BigInteger;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+/**
+ * This class provides methods to encrypt and decrypt data.
+ * @author Stephane Moreau
+ */
+public class Crypto {
+    private static String md5(final String input) throws NoSuchAlgorithmException {
+        final MessageDigest md = MessageDigest.getInstance("MD5");
+        final byte[] messageDigest = md.digest(input.getBytes());
+        final BigInteger number = new BigInteger(1, messageDigest);
+        return String.format("%032x", number);
+    }
+
+    private Cipher initCipher(final int mode, final String initialVectorString, final String secretKey)
+            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+        final SecretKeySpec skeySpec = new SecretKeySpec(md5(secretKey).getBytes(), "AES");
+        final IvParameterSpec initialVector = new IvParameterSpec(initialVectorString.getBytes());
+        final Cipher cipher = Cipher.getInstance("AES/CFB8/NoPadding");
+        cipher.init(mode, skeySpec, initialVector);
+        return cipher;
+    }
+
+    public String encrypt(final String dataToEncrypt, final String initialVector, final String secretKey) {
+        String encryptedData = null;
+        try {
+            // Initialize the cipher
+            final Cipher cipher = initCipher(Cipher.ENCRYPT_MODE, initialVector, secretKey);
+            // Encrypt the data
+            final byte[] encryptedByteArray = cipher.doFinal(dataToEncrypt.getBytes());
+            // Encode using Base64
+            encryptedData = (new BASE64Encoder()).encode(encryptedByteArray);
+        } catch (Exception e) {
+            System.err.println("Problem encrypting the data");
+            e.printStackTrace();
+        }
+        return encryptedData;
+    }
+
+    public String decrypt(final String encryptedData, final String initialVector, final String secretKey) {
+        String decryptedData = null;
+        try {
+            // Initialize the cipher
+            final Cipher cipher = initCipher(Cipher.DECRYPT_MODE, initialVector, secretKey);
+            // Decode using Base64
+            final byte[] encryptedByteArray = (new BASE64Decoder()).decodeBuffer(encryptedData);
+            // Decrypt the data
+            final byte[] decryptedByteArray = cipher.doFinal(encryptedByteArray);
+            decryptedData = new String(decryptedByteArray, "UTF8");
+        } catch (Exception e) {
+            System.err.println("Problem decrypting the data");
+            e.printStackTrace();
+        }
+        return decryptedData;
+    }
+
+    public static void main(final String[] args) {
+        final String iv = "0123456789123456"; // This has to be 16 characters
+        final String secretKey = "Replace this by your secret key";
+        final Crypto crypto = new Crypto();
+
+        final String encryptedData = crypto.encrypt("This is a test message.", iv, secretKey);
+        System.out.println(encryptedData);
+
+        final String decryptedData = crypto.decrypt(encryptedData, iv, secretKey);
+        System.out.println(decryptedData);
+    }
+}
+
+
+
+                   if(package_name.equals('1'))
+                   {
+                       setPrice(10.0);   
+                       setNewPrice(getBalance()-getPrice());
+                   }
+                   if(package_name.equals('2'))
+                   {
+                       setPrice(69.0);   
+                       setNewPrice(getBalance()-getPrice());
+                   }
+                   if(package_name.equals('3'))
+                   {
+                       setPrice(73.0);   
+                       setNewPrice(getBalance()-getPrice());
+                   }
+                   if(package_name.equals('4'))
+                   {
+                       setPrice(131.0);   
+                       setNewPrice(getBalance()-getPrice());
+                   }

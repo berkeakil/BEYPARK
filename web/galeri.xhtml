@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" type="text/css" href="css/galeri.css"></link>
+      <style>
+         div.gallery {
+           border: 1px solid #ccc;
+         }
+
+         div.gallery:hover {
+           border: 1px solid #777;
+         }
+
+         div.gallery img {
+           width: 100%;
+           height: auto;
+         }
+
+         div.desc {
+           padding: 15px;
+           text-align: center;
+         }
+
+         * {
+           box-sizing: border-box;
+         }
+
+         .responsive {
+           padding: 0 6px;
+           float: left;
+           width: 24.99999%;
+         }
+
+         @media only screen and (max-width: 700px) {
+           .responsive {
+             width: 49.99999%;
+             margin: 6px 0;
+           }
+         }
+
+         @media only screen and (max-width: 500px) {
+           .responsive {
+             width: 100%;
+           }
+         }
+
+         .clearfix:after {
+           content: "";
+           display: table;
+           clear: both;
+         }
+      </style>
+      <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+      <title>BEYPARK Otopark-Galeri</title>
+      <meta name="description" content=""></meta>
+      <meta property="og:description" content=""></meta>
+      <meta property="og:title" content="BEYPARK Otopark"></meta>
+      <meta property="og:type" content="website"></meta>
+      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+      <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+      <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+ </h:head>
+ <h:body style="background-image: url(./img/background.jpg);background-repeat:no-repeat;background-size:cover">
+
+    <div>
+    <div id="myNav" class="overlay">
+
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+       <div class="overlay-content">
+            <h:form> 
+              <h:commandLink value="Anasayfa" action="#{user.goToIndex}"/>
+              <h:commandLink value="Paketlerimiz" action="#{beanPaketlerimiz.goToPaketlerimiz}"/>
+              <h:commandLink value="Otoparklarımız" action="#{beanOtoparklarimiz.goToOtoparklarimiz}"/>
+              <h:commandLink value="Hesabım" action="#{beanHesabim.goToHesabim}"/>
+              <h:commandLink value="Galeri" action="#{beanGaleri.goToGaleri}"/>
+              <h:commandLink value="Bize Ulaşın" action="#{beanBizeUlasin.goToBizeUlasin}"/>
+            </h:form> 
+
+       </div>
+        
+    </div>
+    
+        <span style="font-size:62px;cursor:pointer" onclick="openNav()"><sub>☰</sub></span>
+   
+        <h:link  outcome="girisYap">
+            <h:graphicImage value = "img/sign.png" style="width:70px;margin-left:4em"/> 
+        </h:link>
+  
+        <h:link  outcome="index">
+           <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+  </div>
+    <script>
+        
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+        
+    </script>
+    <hr></hr><br></br><br></br><br></br><br></br><br></br><br></br>
+
+         <div class="responsive">
+           <div class="gallery">
+             <a target="_blank" href="img/galeri4.jpg">
+                <h:graphicImage value ="img/galeri4.jpg" width="600" height="400"/>
+             </a>
+              <div class="desc"><h2>Cennet Otoparkı</h2>
+                 <p style='font-size:10px'>*Vip Müşterilerimiz içindir</p>
+              </div>
+           </div>
+         </div>
+
+
+         <div class="responsive">
+           <div class="gallery">
+             <a target="_blank" href="img/galeri2.jpg">
+               <h:graphicImage value ="img/galeri6.jpg" width="600" height="400"/>
+             </a>
+             <div class="desc"><h2>Bağcılar Otoparkı</h2>
+                <p style='font-size:10px'><br></br></p>
+             </div>
+           </div>
+         </div>
+
+         <div class="responsive">
+           <div class="gallery">
+             <a target="_blank" href="img/galeri3.jpg">
+               <h:graphicImage value ="img/galeri3.jpg" width="600" height="400"/>
+             </a>
+             <div class="desc"><h2>Bayrampaşa Otoparkı</h2>
+                <p style='font-size:10px'><br></br></p>
+             </div>
+           </div>
+         </div>
+
+         <div class="responsive">
+           <div class="gallery">
+             <a target="_blank" href="img/galeri8.jpg">
+               <h:graphicImage value ="img/galeri8.jpg" width="600" height="400"/>
+             </a>
+             <div class="desc"><h2>Arnavutköy Otoparkı</h2>
+                <p style='font-size:10px'><br></br></p>
+             </div>
+              <a href="galeri.xhtml"></a>
+           </div>
+             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+
+         </div>
+
+    </h:body>
+   <footer>
+             <div>
+             <div style="text-align:center">
+                
+                <h:graphicImage value = "img/konum1.png" style="width:30px;margin-left:4em"/> 
+                 <h:outputLabel value = " &thinsp;ADRES: Üniversite Mahallesi, Bağlariçi Cd. No:7, 34320 Avcılar/İstanbul" style="font-size:20px;color:black"/><br></br>
+                 <h:graphicImage value = "img/arama1.svg" style="width:30px;margin-left:4em"/> 
+                 <h:outputLabel value = "&thinsp; İLETİŞİM: 0(461)061 55 42 - 0(561) 061 55 42" style="font-size:18px;color:black"/><br></br>
+                 <h:graphicImage value = "img/mail1.png" style="width:30px;margin-left:4em"/> 
+                 <h:outputLabel value = "&thinsp;&thinsp;&thinsp;E-Posta:iletisim.beypark@gmail.com" style="font-size:18px;color:black"/>
+
+             </div>
+          </div>
+         </footer>
+</html>

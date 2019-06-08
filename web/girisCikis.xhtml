@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+        <meta charset="utf-8"/>
+        <meta charset="utf-16"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <meta property="og:title" content="BEYPARK Otopark"></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+        
+        <link rel="icon" type="image/png" sizes="16x16" href="img/titlelogo.png"></link>
+        <title>BEYPARK - Giriş</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/overlay.css"></link>
+        <link href="css/girisyap/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/girisyap/style.css" rel="stylesheet"/>
+        <script src="scripts/girisyap/jquery.min.js"></script>
+        <script src="scripts/girisyap/bootstrap.min.js"></script>
+        <script src="scripts/girisyap/sidebar-nav.min.js"></script>
+        <script src="scripts/girisyap/jquery.slimscroll.js"></script>
+        <script src="scripts/girisyap/custom.js"></script>
+
+        
+    </head>
+
+<body class="public-body" style="background-image: url(./img/p1.jpg);background-repeat:no-repeat;background-size:cover">
+   <div>
+        <h:link  outcome="personel">
+            <img src="img/beyparklogo.png" style="float:right;height:100px"></img> 
+        </h:link> 
+    </div>
+
+   <div id="wrapper">
+       <br/><br/><br/><br/>
+       <div id="page-wrapper" style="background: transparent; margin: 0 !important; padding: 0 !important;">
+           <div class="container-fluid">
+               <div class="row" style="margin-top: 50px;">
+                   <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
+                   <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                       <div class="panel panel-default">
+                           <div class="panel-heading">
+                              <h:link outcome="index">
+                              <p ><h1 align="center"><img src="img/beyparklogo.png" width="50%"></img></h1></p>
+                              </h:link>
+                           </div>
+                           <div class="panel-wrapper collapse in">
+                               <ul class="nav customtab nav-tabs" role="tablist" style="text-align: center; ">
+                               <li role="presentation" class="active" style="float: none; display: inline-block;width: 49%;">
+                                   <a href="#home1" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">
+                                       <span class="visible-xs">
+                                           <i class="ti-home"></i>
+                                       </span>
+                                      <span class="hidden-xs" style="font-size:25px"> Giren Araç</span>
+                                   </a>
+                               </li>
+                               <li role="presentation" class="" style="float: none; display: inline-block; width: 50%;">
+                                   <a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
+                                       <span class="visible-xs"><i class="ti-user"></i></span>
+                                       <span class="hidden-xs" style="font-size:25px">Çıkan Araç</span></a>
+                               </li>
+                               </ul>
+
+                               <div class="panel-body">
+                                   <div class="tab-content m-t-0">
+                                       <div role="tabpanel" class="tab-pane fade active in" id="home1">
+                                          <h:form>
+                                             <h:panelGrid id = "panel" columns = "1" >
+                                             <h:outputText value = "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;PLAKA" style="font-size:34px;font-weight:bold;" />
+                                             <h:inputText required="true" value="#{beanPersonelGC.plaka}" style="height:100px;font-size:50px;" size="18"/>
+                                             <br></br>
+                                             
+                                                <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                                                   <h:commandButton id = "submit" value = ">" style="font-size:50px;" action="#{beanPersonelGC.giris}"/>
+                                                </h:panelGroup>
+                                             </h:panelGrid>
+                                         </h:form>
+                                          <div class="clearfix"></div>
+                                       </div>
+                                       <div role="tabpanel" class="tab-pane fade " id="profile1">
+                                           <div class="col-md-12">
+                                               <h:form>
+                                                  <h:panelGrid id = "panel" columns = "1">                                                
+                                                      <h:outputText value = "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;PLAKA" style="font-size:34px;font-weight:bold;" />
+                                                      <h:inputText required="true" value="#{beanPersonelGC.plaka}" style="height:100px;font-size:50px;" size="18"/>
+                                                      <br></br>
+                                                      
+                                                <h:panelGroup style = "display:block; text-align:center;font-size:18px;">
+                                                    <h:commandButton id = "submit" value = ">" style="font-size:50px;" action="#{beanPersonelGC.cikis}"/>
+                                                      </h:panelGroup>
+                                                  </h:panelGrid>
+                                               </h:form>
+                                               <hr></hr>
+                                               
+                                                <h:panelGrid id="musteriBilgileri" columns="2" rendered="#{beanPersonelGC.isMusteri}">
+                                                    <h:outputText value="Plaka"/>
+                                                    <h:outputText value=": #{beanPersonelGC.tempPlaka}"/>
+                                                    <h:outputText value="Name"/>
+                                                    <h:outputText value=": #{beanPersonelGC.name}"/>
+                                                    <h:outputText value="Surname"/>
+                                                    <h:outputText value=": #{beanPersonelGC.surname}"/>
+                                                    <h:outputText value="Package"/>
+                                                    <h:outputText value=": #{beanPersonelGC.packageName}"/>
+                                                    <h:outputText value="Diff time"/>
+                                                    <h:outputText value=": #{beanPersonelGC.diffMinutes} DK"/>
+                                                </h:panelGrid>
+                                               
+                                               <h:panelGrid id="guestBilgileri" columns="2" rendered="#{beanPersonelGC.isGuest}">
+                                                    <h:outputText value="Plaka"/>
+                                                    <h:outputText value=": #{beanPersonelGC.tempPlaka}"/>
+                                                    <h:outputText value="Name"/>
+                                                    <h:outputText value=": #{beanPersonelGC.name}"/>
+                                                    <h:outputText value="Surname"/>
+                                                    <h:outputText value=": #{beanPersonelGC.surname}"/>
+                                                    <h:outputText value="Package"/>
+                                                    <h:outputText value=": #{beanPersonelGC.packageName}"/>
+                                                    <h:outputText value="Diff time"/>
+                                                    <h:outputText value=": #{beanPersonelGC.diffMinutes} DK"/>
+                                               </h:panelGrid>
+                                               
+                                              
+                                               
+                                               
+                                           </div>
+                                           <div class="clearfix"></div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</body>
+
+</html>
